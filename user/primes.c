@@ -13,11 +13,12 @@ filter(int read_fd){
     int f;
     int r=read(read_fd,&f,4);
     if (r==4){
-        fprintf(2,"prime %d\n",f);
+        printf("prime %d\n",f);
         int p[2];
         pipe(p);
         if(fork()==0){
             //子进程
+            close(read_fd);
             close(p[1]);//关闭发送端
             filter(p[0]);
         }else{
