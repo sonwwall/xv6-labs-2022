@@ -50,14 +50,13 @@ find(char *path,char *name){
         case T_FILE:
             if(strcmp(basename(path),name)==0){
             printf("%s\n",path);
-            break;
         }
         break;
         case T_DIR:
-        //先判断一下是不是与提供的名称一样
-          if(strcmp(basename(path),name)==0){
-            printf("%s\n",path);
-        }
+        // //先判断一下是不是与提供的名称一样
+        //   if(strcmp(basename(path),name)==0){
+        //     printf("%s\n",path);
+        // }
         //检查一下目录长度，这里超过512字节直接毙掉
         if(strlen(path) + 1 + DIRSIZ + 1 > sizeof buf){
         printf("ls: path too long\n");
@@ -89,11 +88,13 @@ find(char *path,char *name){
             if(strcmp(p, name) == 0){
                 printf("%s\n", buf);
             }
-
+            
             //判断一下子项是不是目录文件
             if(st.type==T_DIR){
                 find(buf,name);
             }
+            
+
   
         
             
@@ -109,6 +110,7 @@ int
 main(int argc,char *argv[]){
     if (argc < 3){
         fprintf(2,"使用方法：find 目录 目标文件\n");
+        exit(0);
     }
     find(argv[1],argv[2]);
     exit(0);
