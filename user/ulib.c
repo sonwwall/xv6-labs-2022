@@ -81,6 +81,7 @@ gets(char *buf, int max)
   return buf;
 }
 
+//根据路径名找到文件的inode，出错返回-1
 int
 stat(const char *n, struct stat *st)
 {
@@ -106,6 +107,7 @@ atoi(const char *s)
   return n;
 }
 
+//从源地址拷贝 n 字节到目标地址，支持重叠区域拷贝
 void*
 memmove(void *vdst, const void *vsrc, int n)
 {

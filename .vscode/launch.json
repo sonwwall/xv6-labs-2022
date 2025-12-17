@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/ruitong/xv6-labs-2022/user",
+      "program": "/Users/ruitong/xv6-labs-2022/user/build/Debug/outDebug"
+    }
+  ]
+}
